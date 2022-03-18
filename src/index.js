@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles.css";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import ListGroup from "./navBar";
 import Column from "./column";
 import reorder, { reorderQuoteMap, reoGlobalrderQuoteMap } from "./reorder";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
@@ -12,9 +13,13 @@ const ParentContainer = styled.div`
   /* overflow-x: hidden;
   overflow-y: auto; */
 `;
-
+const NavBar = styled.div`
+  background-color: #f8f8f8;
+  width: 133%;
+  padding: 20px 30px;
+  border-bottom: 1px solid #ccc;
+`;
 const Container = styled.div`
-  background-color: #ebecf0;
   /* min-height: 100vh; */
   /* like display:flex but will allow bleeding over the window width */
   /* min-width: 100vw; */
@@ -117,7 +122,6 @@ class Board extends Component {
                 index={index}
                 title={key}
                 quotes={columns[key]}
-                isScrollable={this.props.withScrollableColumns}
                 isCombineEnabled={this.props.isCombineEnabled}
               />
             ))}
@@ -129,6 +133,9 @@ class Board extends Component {
 
     return (
       <React.Fragment>
+        <NavBar>
+          <ListGroup></ListGroup>
+        </NavBar>
         <DragDropContext onDragEnd={this.onDragEnd}>
           {containerHeight ? (
             <ParentContainer height={containerHeight}>{board}</ParentContainer>

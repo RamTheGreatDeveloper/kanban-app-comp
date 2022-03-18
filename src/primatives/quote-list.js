@@ -27,10 +27,10 @@ const Wrapper = styled.div`
   padding-bottom: 0;
   transition: background-color 0.2s ease, opacity 0.1s ease;
   user-select: none;
-  width: 250px;
+  width: 350px;
 `;
 
-const scrollContainerHeight = 250;
+const scrollContainerHeight = 600;
 
 const DropZone = styled.div`
   /* stop the list collapsing when empty */
@@ -43,6 +43,17 @@ const DropZone = styled.div`
 `;
 
 const ScrollContainer = styled.div`
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    border: 1px solid #f8f8f8;
+    background-color: #ccc;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(184, 184, 184);
+  }
   overflow-x: auto;
   overflow-y: auto;
   max-height: ${scrollContainerHeight}px;
@@ -107,7 +118,6 @@ export default class QuoteList extends React.Component {
   render() {
     const {
       ignoreContainerClipping,
-      internalScroll,
       scrollContainerStyle,
       isDropDisabled,
       isCombineEnabled,
@@ -134,7 +144,13 @@ export default class QuoteList extends React.Component {
             isDraggingFrom={Boolean(dropSnapshot.draggingFromThisWith)}
             {...dropProvided.droppableProps}
           >
-            {internalScroll ? (
+            {this.props.quotes.length === 0 ? (
+              <InnerList
+                quotes={quotes}
+                title={title}
+                dropProvided={dropProvided}
+              />
+            ) : (
               <ScrollContainer style={scrollContainerStyle}>
                 <InnerList
                   quotes={quotes}
@@ -142,13 +158,14 @@ export default class QuoteList extends React.Component {
                   dropProvided={dropProvided}
                 />
               </ScrollContainer>
-            ) : (
+            )}
+            {/* <ScrollContainer style={scrollContainerStyle}>
               <InnerList
                 quotes={quotes}
                 title={title}
                 dropProvided={dropProvided}
               />
-            )}
+            </ScrollContainer> */}
           </Wrapper>
         )}
       </Droppable>

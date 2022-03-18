@@ -20,9 +20,9 @@ const getBorderColor = (isDragging, authorColors) =>
 
 const Container = styled.a`
   border-top-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-left: 1px solid green;
-  /* border-radius: ${borderRadius}px; */
+  border-bottom-left-radius: 3px;
+  border-left: 3px solid lightgreen;
+  ${"" /* width: 100%; */}
 
   background-color: ${(props) =>
     getBackgroundColor(props.isDragging, props.isGroupedOver, props.colors)};
@@ -85,17 +85,16 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 11px;
+  color: rgb(165, 157, 157);
   font-weight: 600;
-  color: rgb(145, 143, 143);
 `;
 
-const Author = styled.small`
+const Date = styled.small`
   flex-grow: 0;
   margin: 0;
-  background-color: ${(props) => props.colors.soft};
-  border-radius: ${borderRadius}px;
-  font-weight: normal;
+  font-weight: bold;
+  color: #7e7472;
   padding: ${grid / 2}px;
 `;
 const OrderNo = styled.div`
@@ -103,14 +102,17 @@ const OrderNo = styled.div`
   flex-direction: column;
   font-size: 15px;
   font-weight: 600;
+  margin-bottom: 5px;
   color: rgb(177, 169, 169);
 `;
 const OrderTag = styled.div`
   display: flex;
 `;
 const OrderId = styled.div`
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
+  color: #000;
+  margin-top: 5px;
 `;
 const Num = styled.div``;
 const Res = styled.div`
@@ -120,6 +122,16 @@ const Res = styled.div`
   border-radius: 3px;
   color: rgb(95, 95, 202);
   background-color: #ece7e7;
+`;
+const Due = styled.span`
+  font-size: 12px;
+  font-weight: normal;
+`;
+const DueDate = styled.div``;
+const Assign = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: normal;
 `;
 const AssignBy = styled.div`
   width: 20px;
@@ -157,14 +169,19 @@ export default class QuoteItem extends React.PureComponent {
             <Num>{quote.id}</Num>
             <Res>{quote.author.tag}</Res>
           </OrderTag>
-          <OrderId>Order: {quote.orderNo}</OrderId>
+          <OrderId>Order No: {quote.orderNo}</OrderId>
         </OrderNo>
         <Content>
           <BlockQuote>{quote.content}</BlockQuote>
           <Footer>
-            <Author colors={quote.author.colors}>{quote.author.date} </Author>
-            AssignedBy
-            <AssignBy />
+            <DueDate>
+              <Due>DUE:</Due>
+              <Date>{quote.date} </Date>
+            </DueDate>
+            <Assign>
+              ASSIGNED TO
+              <AssignBy />
+            </Assign>
           </Footer>
         </Content>
       </Container>

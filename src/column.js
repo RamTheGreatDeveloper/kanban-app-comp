@@ -9,6 +9,7 @@ const Container = styled.div`
   margin: ${grid}px;
   display: flex;
   flex-direction: column;
+  background-color: #ebecf0;
 `;
 
 const Header = styled.div`
@@ -17,10 +18,7 @@ const Header = styled.div`
   justify-content: center;
   border-top-left-radius: ${borderRadius}px;
   border-top-right-radius: ${borderRadius}px;
-  ${
-    "" /* background-color: ${({ isDragging }) =>
-    isDragging ? colors.G50 : colors.N30}; */
-  }
+  font-size: 12px;
   transition: background-color 0.2s ease;
   &:hover {
     background-color: #f8f8f8;
@@ -41,7 +39,7 @@ export default class Column extends Component {
                 isDragging={snapshot.isDragging}
                 {...provided.dragHandleProps}
               >
-                {title}
+                {title} ({this.props.quotes.length})
               </Title>
             </Header>
             <QuoteList
@@ -51,7 +49,6 @@ export default class Column extends Component {
               //   backgroundColor: snapshot.isDragging ? #000 : null,
               // }}
               quotes={quotes}
-              internalScroll={this.props.isScrollable}
               isCombineEnabled={Boolean(this.props.isCombineEnabled)}
             />
           </Container>
