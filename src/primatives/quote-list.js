@@ -33,12 +33,7 @@ const Wrapper = styled.div`
 const scrollContainerHeight = 600;
 
 const DropZone = styled.div`
-  /* stop the list collapsing when empty */
   min-height: ${scrollContainerHeight}px;
-  /*
-    not relying on the items for a margin-bottom
-    as it will collapse when the list is empty
-  */
   padding-bottom: ${grid}px;
 `;
 
@@ -59,9 +54,7 @@ const ScrollContainer = styled.div`
   max-height: ${scrollContainerHeight}px;
 `;
 
-/* stylelint-disable block-no-empty */
 const Container = styled.div``;
-/* stylelint-enable */
 
 class InnerQuoteList extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -159,13 +152,6 @@ export default class QuoteList extends React.Component {
                 />
               </ScrollContainer>
             )}
-            {/* <ScrollContainer style={scrollContainerStyle}>
-              <InnerList
-                quotes={quotes}
-                title={title}
-                dropProvided={dropProvided}
-              />
-            </ScrollContainer> */}
           </Wrapper>
         )}
       </Droppable>

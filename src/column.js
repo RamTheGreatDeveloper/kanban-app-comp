@@ -45,9 +45,6 @@ export default class Column extends Component {
             <QuoteList
               listId={title}
               listType="QUOTE"
-              // style={{
-              //   backgroundColor: snapshot.isDragging ? #000 : null,
-              // }}
               quotes={quotes}
               isCombineEnabled={Boolean(this.props.isCombineEnabled)}
             />

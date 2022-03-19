@@ -4,30 +4,23 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 import ListGroup from "./navBar";
 import Column from "./column";
-import reorder, { reorderQuoteMap, reoGlobalrderQuoteMap } from "./reorder";
+import reorder, { reorderQuoteMap } from "./reorder";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { authorQuoteMap } from "./data";
-
-const ParentContainer = styled.div`
-  /* height: ${({ height }) => height}; */
-  /* overflow-x: hidden;
-  overflow-y: auto; */
-`;
+import Search from "./search";
+const ParentContainer = styled.div``;
 const NavBar = styled.div`
   background-color: #f8f8f8;
-  width: 133%;
+
+  display: flex;
   padding: 20px 30px;
   border-bottom: 1px solid #ccc;
 `;
 const Container = styled.div`
-  /* min-height: 100vh; */
-  /* like display:flex but will allow bleeding over the window width */
-  /* min-width: 100vw; */
   display: inline-flex;
 `;
 
 class Board extends Component {
-  /* eslint-disable react/sort-comp */
   static defaultProps = {
     isCombineEnabled: false,
   };
@@ -36,8 +29,6 @@ class Board extends Component {
     columns: this.props.initial,
     ordered: Object.keys(this.props.initial),
   };
-
-  boardRef;
 
   onDragEnd = (result) => {
     if (result.combine) {
@@ -67,7 +58,7 @@ class Board extends Component {
     const source = result.source;
     const destination = result.destination;
 
-    // did not move anywhere - can bail early
+    // did not move anywhere
     if (
       source.droppableId === destination.droppableId &&
       source.index === destination.index
@@ -135,6 +126,7 @@ class Board extends Component {
       <React.Fragment>
         <NavBar>
           <ListGroup></ListGroup>
+          <Search></Search>
         </NavBar>
         <DragDropContext onDragEnd={this.onDragEnd}>
           {containerHeight ? (

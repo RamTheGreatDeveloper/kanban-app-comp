@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  font-family: "Spartan", sans-serif;
 }
 
 .main {
@@ -49,6 +48,10 @@
   font-weight: normal;
 }
 .js2:hover {
+  background-color: green;
+  color: #fff;
+}
+.active {
   background-color: green;
   color: #fff;
 }

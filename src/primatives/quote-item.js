@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
-import { borderRadius, grid } from "../constants";
+import { grid } from "../constants";
 
 const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
   if (isDragging) {
@@ -15,15 +15,13 @@ const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
   return colors.N0;
 };
 
-const getBorderColor = (isDragging, authorColors) =>
-  isDragging ? authorColors.hard : "transparent";
+// const getBorderColor = (isDragging, authorColors) =>
+//   isDragging ? authorColors.hard : "transparent";
 
 const Container = styled.a`
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border-left: 3px solid lightgreen;
-  ${"" /* width: 100%; */}
-
   background-color: ${(props) =>
     getBackgroundColor(props.isDragging, props.isGroupedOver, props.colors)};
   box-shadow: ${({ isDragging }) =>
@@ -33,7 +31,6 @@ const Container = styled.a`
   margin-bottom: ${grid}px;
   user-select: none;
   text-decoration: none;
-  /* anchor overrides */
   color: ${colors.N900};
 
   &:hover,
@@ -53,24 +50,9 @@ const Container = styled.a`
   flex-direction: column;
 `;
 
-const Avatar = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: ${grid}px;
-  flex-shrink: 0;
-  flex-grow: 0;
-`;
-
 const Content = styled.div`
-  /* flex child */
   flex-grow: 1;
-  /*
-    Needed to wrap text in ie11
-    https://stackoverflow.com/questions/35111090/why-ie11-doesnt-wrap-the-text-in-flexbox
-  */
   flex-basis: 100%;
-  /* flex parent */
   display: flex;
   flex-direction: column;
 `;
@@ -141,14 +123,6 @@ const AssignBy = styled.div`
   background-color: lightgray;
   margin-left: 10px;
 `;
-
-// Previously this extended React.Component
-// That was a good thing, because using React.PureComponent can hide
-// issues with the selectors. However, moving it over does can considerable
-// performance improvements when reordering big lists (400ms => 200ms)
-// Need to be super sure we are not relying on PureComponent here for
-// things we should be doing in the selector as we do not know if consumers
-// will be using PureComponent
 export default class QuoteItem extends React.PureComponent {
   render() {
     const { quote, isDragging, isGroupedOver, provided } = this.props;
@@ -163,7 +137,6 @@ export default class QuoteItem extends React.PureComponent {
         {...provided.draggableProps}
         {...provided.dragHandleProps}
       >
-        {/* <Avatar src={quote.author.avatarUrl} alt={quote.author.name} /> */}
         <OrderNo>
           <OrderTag>
             <Num>{quote.id}</Num>

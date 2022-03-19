@@ -1,8 +1,4 @@
 import { colors } from "@atlaskit/theme";
-import jakeImg from "./assets/jake.png";
-import finnImg from "./assets/finn.png";
-import bmoImg from "./assets/bmo.png";
-import princessImg from "./assets/princess.png";
 
 const ReOrder = {
   id: "1",
