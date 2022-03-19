@@ -15,9 +15,6 @@ const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
   return colors.N0;
 };
 
-// const getBorderColor = (isDragging, authorColors) =>
-//   isDragging ? authorColors.hard : "transparent";
-
 const Container = styled.a`
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;

@@ -14,14 +14,11 @@
 .js2 {
   list-style: none;
   margin-right: 5px;
-  /* width: 50%; */
   list-style-position: outside;
-  /* margin-top: 10px; */
   padding: 10px;
   background-color: #e2dfdf;
   cursor: pointer;
   border-radius: 3px;
-  /* width: 175%; */
   font-size: 12px;
   font-weight: normal;
 }
@@ -33,19 +30,12 @@
   margin-left: 5px;
 }
 .js {
-  /* background-color: #eee; */
   margin-top: 20px;
   height: 10px;
   width: 171%;
   display: flex;
   align-items: center;
   font-weight: bold;
-}
-
-.js2 {
-  list-style: none;
-  margin-right: 5px;
-  font-weight: normal;
 }
 .js2:hover {
   background-color: green;

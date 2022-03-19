@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./styles.css";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import ListGroup from "./navBar";
+import ListGroup from "./listGroup";
 import Column from "./column";
 import reorder, { reorderQuoteMap } from "./reorder";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
