@@ -13,7 +13,7 @@ Pluggable components to add react-beautiful-dnd kanban board to your application
 
 ## Features
 
-![alt tag](https://raw.githubusercontent.com/rcdexta/react-trello/master/react-trello.gif)
+![alt tag](supportFiles/kanbanBoard.gif)
 
 * Responsive and extensible
 * Easily pluggable into existing react application
