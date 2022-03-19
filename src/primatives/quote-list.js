@@ -58,11 +58,7 @@ const Container = styled.div``;
 
 class InnerQuoteList extends React.Component {
   shouldComponentUpdate(nextProps) {
-    if (nextProps.quotes !== this.props.quotes) {
-      return true;
-    } else {
-      return false;
-    }
+    return nextProps.quotes !== this.props.quotes;
   }
 
   render() {
