@@ -9,17 +9,8 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { authorQuoteMap } from "./data";
 import Search from "./search";
 const ParentContainer = styled.div``;
-const NavBar = styled.div`
-  background-color: #f8f8f8;
-  display: flex;
-  padding: 20px 30px;
-  border-bottom: 1px solid #ccc;
-  justify-content: space-between;
-`;
-const Container = styled.div`
-  display: inline-flex;
-`;
-
+const NavBar = styled.div`background-color: #f8f8f8;display: flex;padding: 20px 30px;border-bottom: 1px solid #ccc;justify-content: space-between;`;
+const Container = styled.div`display: inline-flex;`;
 class Board extends Component {
   static defaultProps = {
     isCombineEnabled: false,

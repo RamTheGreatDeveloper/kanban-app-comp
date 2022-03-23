@@ -28,22 +28,8 @@ const Wrapper = styled.div`
   user-select: none;
   width: 350px;
 `;
-const DropZone = styled.div`
-  min-height: 600px;
-  padding-bottom: 8px;
-`;
-const ScrollContainer = styled.div`
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 30px;
-    border: 1px solid #f8f8f8;
-    background-color: #ccc;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(184, 184, 184);
-  }
+const DropZone = styled.div`min-height: 600px;padding-bottom: 8px;`;
+const ScrollContainer = styled.div`&::-webkit-scrollbar {width: 8px;}&::-webkit-scrollbar-thumb {border-radius: 30px;border: 1px solid #f8f8f8;background-color: #ccc;}&::-webkit-scrollbar-thumb:hover {background-color: rgb(184, 184, 184);}
   overflow-x: auto;
   overflow-y: auto;
   max-height: 600px;
@@ -100,17 +86,7 @@ export default class QuoteList extends React.Component {
     listId: "LIST",
   };
   render() {
-    const {
-      ignoreContainerClipping,
-      scrollContainerStyle,
-      isDropDisabled,
-      isCombineEnabled,
-      listId,
-      listType,
-      style,
-      quotes,
-      title,
-    } = this.props;
+    const {ignoreContainerClipping,scrollContainerStyle,isDropDisabled,isCombineEnabled,listId,listType,style,quotes,title,} = this.props;
 
     return (
       <Droppable
