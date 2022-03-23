@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
-
 const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
   if (isDragging) {return authorColors.soft;}
   if (isGroupedOver) {return colors.N30;}
   return colors.N0;
 };
-
 const Container = styled.a`border-top-left-radius: 3px;border-bottom-left-radius: 3px;border-left: 3px solid lightgreen;
   background-color: ${(props) =>
     getBackgroundColor(props.isDragging, props.isGroupedOver, props.colors)};
@@ -24,7 +22,6 @@ const Container = styled.a`border-top-left-radius: 3px;border-bottom-left-radius
     box-shadow: none;
   }
   display: flex;flex-direction: column;`;
-
 const Content = styled.div`flex-grow: 1;flex-basis: 100%;display: flex;flex-direction: column;`;
 const BlockQuote = styled.div`color: rgb(165, 157, 157);font-size: 12px;margin-bottom: 5px;`;
 const Footer = styled.div`display: flex;justify-content: space-between;align-items: center;font-size: 11px;color: rgb(165, 157, 157);font-weight: 600;`;
@@ -41,35 +38,16 @@ const AssignBy = styled.div`width: 20px;height: 20px;border: 1px solid blue;bord
 export default class QuoteItem extends React.PureComponent {
   render() {
     const { quote, isDragging, isGroupedOver, provided } = this.props;
-
     return (
-      <Container
-        href={quote.author.url}
-        isDragging={isDragging}
-        isGroupedOver={isGroupedOver}
-        colors={quote.author.colors}
-        ref={provided.innerRef}
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-      >
+      <Container isDragging={isDragging} isGroupedOver={isGroupedOver} colors={quote.author.colors} ref={provided.innerRef} {...provided.draggableProps}{...provided.dragHandleProps}>
         <OrderNo>
-          <OrderTag>
-            <Num>{quote.id}</Num>
-            <Res>{quote.author.tag}</Res>
-          </OrderTag>
+          <OrderTag> <Num>{quote.id}</Num> <Res>{quote.author.tag}</Res> </OrderTag>
           <OrderId>Order No: {quote.orderNo}</OrderId>
         </OrderNo>
         <Content>
           <BlockQuote>{quote.content}</BlockQuote>
           <Footer>
-            <DueDate>
-              <Due>DUE:</Due>
-              <Date>{quote.date} </Date>
-            </DueDate>
-            <Assign>
-              ASSIGNED TO
-              <AssignBy />
-            </Assign>
+            <DueDate> <Due>DUE:</Due> <Date>{quote.date} </Date> </DueDate> <Assign> ASSIGNED TO <AssignBy /> </Assign>
           </Footer>
         </Content>
       </Container>

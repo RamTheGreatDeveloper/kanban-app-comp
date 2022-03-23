@@ -16,12 +16,7 @@ export default class Column extends Component {
             {title} ({this.props.quotes.length})
           </Title>
         </Header>
-        <QuoteList
-          listId={title}
-          listType="QUOTE"
-          quotes={quotes}
-          isCombineEnabled={Boolean(this.props.isCombineEnabled)}
-        />
+        <QuoteList listId={title} listType="QUOTE" quotes={quotes} isCombineEnabled={Boolean(this.props.isCombineEnabled)} />
       </Container>
     );
   }

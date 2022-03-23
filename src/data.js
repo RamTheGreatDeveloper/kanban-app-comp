@@ -3,28 +3,40 @@ import { colors } from "@atlaskit/theme";
 const ReOrder = {
   id: "1",
   name: "RECEIVED ORDERS",
-  colors: {soft: colors.Y50,hard: colors.Y200,},
+  colors: {
+    soft: colors.Y50,
+    hard: colors.Y200,
+  },
   tag: "Response due",
 };
 
 const OrderInPro = {
   id: "2",
   name: "ORDER IN PROGRESS",
-  colors: {soft: colors.G50,hard: colors.G200,},
+  colors: {
+    soft: colors.G50,
+    hard: colors.G200,
+  },
   tag: "Response due",
 };
 
 const OrdReady = {
   id: "3",
   name: "ORDER IS READY FOR DELIVERY",
-  colors: {soft: colors.B50,hard: colors.B200,},
+  colors: {
+    soft: colors.B50,
+    hard: colors.B200,
+  },
   tag: "Response due",
 };
 
 const OrdPicked = {
   id: "4",
   name: "ORDER PICKED UP",
-  colors: {soft: colors.P50,hard: colors.P200,},
+  colors: {
+    soft: colors.P50,
+    hard: colors.P200,
+  },
   tag: "Response due",
 };
 
@@ -89,13 +101,7 @@ export const quotes = [
   },
 ];
 
-const getByAuthor = (author, items) =>
-  items.filter((quote) => quote.author === author);
+const getByAuthor = (author, items) =>items.filter((quote) => quote.author === author);
 
 export const authorQuoteMap = authors.reduce(
-  (previous, author) => ({
-    ...previous,
-    [author.name]: getByAuthor(author, quotes),
-  }),
-  {}
-);
+  (previous, author) => ({ ...previous, [author.name]: getByAuthor(author, quotes),}), {} );
