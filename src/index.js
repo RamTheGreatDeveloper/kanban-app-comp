@@ -11,10 +11,8 @@ import Search from "./search";
 const NavBar = styled.div`background-color: #f8f8f8;display: flex;padding: 20px 30px;border-bottom: 1px solid #ccc;justify-content: space-between;`;
 const Container = styled.div`display: inline-flex;`;
 class Board extends Component {
-  static defaultProps = {
-    isCombineEnabled: false,
-  };
-  state = {
+  static defaultProps = {isCombineEnabled: false,};
+  state = { 
     columns: this.props.initial,
     ordered: Object.keys(this.props.initial),
   };
@@ -26,17 +24,10 @@ class Board extends Component {
     const source = result.source;
     const destination = result.destination;
     // did not move anywhere
-    if (
-      source.droppableId === destination.droppableId &&
-      source.index === destination.index
-    ) {
+    if (source.droppableId === destination.droppableId && source.index === destination.index ) {
       return;
     }
-    const data = reorderQuoteMap({
-      quoteMap: this.state.columns,
-      source,
-      destination,
-    });
+    const data = reorderQuoteMap({ quoteMap: this.state.columns, source, destination,});
     this.setState({ columns: data.quoteMap });
   };
 
