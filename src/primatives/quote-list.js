@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import QuoteItem from "./quote-item";
-import Title from "./title";
 
 const getBackgroundColor = (isDraggingOver, isDraggingFrom) => {
   if (isDraggingOver) {
@@ -25,7 +24,8 @@ const Wrapper = styled.div`
 const DropZone = styled.div`min-height: 600px;padding-bottom: 8px;`;
 
 const ScrollContainer = styled.div`&::-webkit-scrollbar {width: 8px;}&::-webkit-scrollbar-thumb {border-radius: 30px;border: 1px solid #f8f8f8;background-color: #ccc;}&::-webkit-scrollbar-thumb:hover {background-color: rgb(184, 184, 184);}
-  overflow-x: auto;overflow-y: auto;max-height: 600px;`;
+  overflow-x: auto;overflow-y: auto;max-height: 600px;
+`;
 const Container = styled.div``;
 
 class InnerQuoteList extends React.Component {
@@ -58,11 +58,9 @@ class InnerQuoteList extends React.Component {
 class InnerList extends React.Component {
   render() {
     const { quotes, dropProvided } = this.props;
-    const title = this.props.title ? <Title>{this.props.title}</Title> : null;
 
     return (
       <Container>
-        {title}
         <DropZone ref={dropProvided.innerRef}>
           <InnerQuoteList quotes={quotes} />
           {dropProvided.placeholder}
