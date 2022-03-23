@@ -18,13 +18,9 @@ const Wrapper = styled.div`
   background-color: ${(props) =>
     getBackgroundColor(props.isDraggingOver, props.isDraggingFrom)};
   display: flex;flex-direction: column;
-  opacity: ${({ isDropDisabled }) => (isDropDisabled ? 0.5 : "inherit")};
   padding: 8px;border: 8px;padding-bottom: 0;transition: background-color 0.2s ease, opacity 0.1s ease;user-select: none;width: 350px;`;
-
 const DropZone = styled.div`min-height: 600px;padding-bottom: 8px;`;
-
-const ScrollContainer = styled.div`&::-webkit-scrollbar {width: 8px;}&::-webkit-scrollbar-thumb {border-radius: 30px;border: 1px solid #f8f8f8;background-color: #ccc;}&::-webkit-scrollbar-thumb:hover {background-color: rgb(184, 184, 184);}
-  overflow-x: auto;overflow-y: auto;max-height: 600px;
+const ScrollContainer = styled.div`&::-webkit-scrollbar {width: 8px;}&::-webkit-scrollbar-thumb {border-radius: 30px;border: 1px solid #f8f8f8;background-color: #ccc;}&::-webkit-scrollbar-thumb:hover {background-color: rgb(184, 184, 184);}overflow-x: auto;overflow-y: auto;max-height: 600px;
 `;
 const Container = styled.div``;
 
@@ -35,20 +31,9 @@ class InnerQuoteList extends React.Component {
 
   render() {
     return this.props.quotes.map((quote, index) => (
-      <Draggable
-        key={quote.id}
-        draggableId={quote.id}
-        index={index}
-        shouldRespectForceTouch={false}
-      >
+      <Draggable key={quote.id} draggableId={quote.id} index={index} shouldRespectForceTouch={false} >
         {(dragProvided, dragSnapshot) => (
-          <QuoteItem
-            key={quote.id}
-            quote={quote}
-            isDragging={dragSnapshot.isDragging}
-            isGroupedOver={Boolean(dragSnapshot.combineTargetFor)}
-            provided={dragProvided}
-          />
+          <QuoteItem key={quote.id} quote={quote} isDragging={dragSnapshot.isDragging} isGroupedOver={Boolean(dragSnapshot.combineTargetFor)} provided={dragProvided} />
         )}
       </Draggable>
     ));
@@ -82,14 +67,14 @@ export default class QuoteList extends React.Component {
         droppableId={listId}
         type={listType}
         ignoreContainerClipping={ignoreContainerClipping}
-        isDropDisabled={isDropDisabled}
+      
         isCombineEnabled={isCombineEnabled}
       >
         {(dropProvided, dropSnapshot) => (
           <Wrapper
             style={style}
             isDraggingOver={dropSnapshot.isDraggingOver}
-            isDropDisabled={isDropDisabled}
+          
             isDraggingFrom={Boolean(dropSnapshot.draggingFromThisWith)}
             {...dropProvided.droppableProps}
           >

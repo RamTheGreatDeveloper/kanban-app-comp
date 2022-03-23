@@ -52,27 +52,17 @@ class Board extends Component {
   render() {
     const columns = this.state.columns;
     const ordered = this.state.ordered;
-    const board = (
-      <Container>
-        {ordered.map((key, index) => (
-          <Column
-            key={key}
-            index={index}
-            title={key}
-            quotes={columns[key]}
-            isCombineEnabled={this.props.isCombineEnabled}
-          />
-        ))}
-      </Container>
-    );
-
-    return (
+     return (
       <React.Fragment>
         <NavBar>
           <ListGroup></ListGroup>
           <Search></Search>
         </NavBar>
-        <DragDropContext onDragEnd={this.onDragEnd}>{board}</DragDropContext>
+        <DragDropContext onDragEnd={this.onDragEnd}> <Container>
+        {ordered.map((key, index) => (
+          <Column key={key} index={index} title={key} quotes={columns[key]} isCombineEnabled={this.props.isCombineEnabled} />
+        ))}
+      </Container></DragDropContext>
       </React.Fragment>
     );
   }
