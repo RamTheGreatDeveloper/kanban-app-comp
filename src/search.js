@@ -4,8 +4,8 @@ import styled from "styled-components";
 const StyledInput = styled.div`
   i {
     position: absolute;
-    left: 79%;
-    top: 38px;
+    left: 79.5%;
+    top: 42px;
     padding: 9px 8px;
     fill: black;
     transition: 0.3s;
@@ -42,7 +42,7 @@ const Search = () => {
                     </Td>
                     <Td>
                         <div style={{ marginTop: 23, height: 8 }} className="js2">
-                            <i className="fa fa-cog"></i>
+                            <i className="fa fa-cog" style={{marginRight:3}}></i>
                             Configurations
                         </div>
                     </Td>

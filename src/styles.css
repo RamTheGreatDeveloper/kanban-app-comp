@@ -19,6 +19,8 @@
   background-color: #e2dfdf;
   cursor: pointer;
   border-radius: 3px;
+  display: flex;
+  align-items: center;
   font-size: 12px;
   font-weight: normal;
 }
