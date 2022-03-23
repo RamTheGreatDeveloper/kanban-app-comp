@@ -60,7 +60,7 @@ export default class QuoteList extends React.Component {
     listId: "LIST",
   };
   render() {
-    const {ignoreContainerClipping,scrollContainerStyle,isDropDisabled,isCombineEnabled,listId,listType,style,quotes,title,} = this.props;
+    const {ignoreContainerClipping,scrollContainerStyle,isCombineEnabled,listId,listType,style,quotes,title,} = this.props;
 
     return (
       <Droppable
