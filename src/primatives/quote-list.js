@@ -18,23 +18,14 @@ const getBackgroundColor = (isDraggingOver, isDraggingFrom) => {
 const Wrapper = styled.div`
   background-color: ${(props) =>
     getBackgroundColor(props.isDraggingOver, props.isDraggingFrom)};
-  display: flex;
-  flex-direction: column;
+  display: flex;flex-direction: column;
   opacity: ${({ isDropDisabled }) => (isDropDisabled ? 0.5 : "inherit")};
-  padding: 8px;
-  border: 8px;
-  padding-bottom: 0;
-  transition: background-color 0.2s ease, opacity 0.1s ease;
-  user-select: none;
-  width: 350px;
-`;
-const DropZone = styled.div`min-height: 600px;padding-bottom: 8px;`;
-const ScrollContainer = styled.div`&::-webkit-scrollbar {width: 8px;}&::-webkit-scrollbar-thumb {border-radius: 30px;border: 1px solid #f8f8f8;background-color: #ccc;}&::-webkit-scrollbar-thumb:hover {background-color: rgb(184, 184, 184);}
-  overflow-x: auto;
-  overflow-y: auto;
-  max-height: 600px;
-`;
+  padding: 8px;border: 8px;padding-bottom: 0;transition: background-color 0.2s ease, opacity 0.1s ease;user-select: none;width: 350px;`;
 
+const DropZone = styled.div`min-height: 600px;padding-bottom: 8px;`;
+
+const ScrollContainer = styled.div`&::-webkit-scrollbar {width: 8px;}&::-webkit-scrollbar-thumb {border-radius: 30px;border: 1px solid #f8f8f8;background-color: #ccc;}&::-webkit-scrollbar-thumb:hover {background-color: rgb(184, 184, 184);}
+  overflow-x: auto;overflow-y: auto;max-height: 600px;`;
 const Container = styled.div``;
 
 class InnerQuoteList extends React.Component {

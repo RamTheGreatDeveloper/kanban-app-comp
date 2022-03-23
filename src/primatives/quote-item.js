@@ -14,22 +14,13 @@ const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
   return colors.N0;
 };
 
-const Container = styled.a`
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-left: 3px solid lightgreen;
+const Container = styled.a`border-top-left-radius: 3px;border-bottom-left-radius: 3px;border-left: 3px solid lightgreen;
   background-color: ${(props) =>
     getBackgroundColor(props.isDragging, props.isGroupedOver, props.colors)};
   box-shadow: ${({ isDragging }) =>
     isDragging ? `2px 2px 1px ${colors.N70}` : "none"};
-  padding: 8px;
-  min-height: 40px;
-  margin-bottom: 8px;
-  user-select: none;
-  text-decoration: none;
-  color: ${colors.N900};
-  &:hover,
-  &:active {
+  padding: 8px;min-height: 40px;margin-bottom: 8px;user-select: none;text-decoration: none;color: ${colors.N900};
+  &:hover,&:active {
     color: ${colors.N900};
     text-decoration: none;
   }
@@ -38,9 +29,7 @@ const Container = styled.a`
     border-color: ${(props) => props.colors.hard};
     box-shadow: none;
   }
-  display: flex;
-  flex-direction: column;
-`;
+  display: flex;flex-direction: column;`;
 
 const Content = styled.div`flex-grow: 1;flex-basis: 100%;display: flex;flex-direction: column;`;
 const BlockQuote = styled.div`color: rgb(165, 157, 157);font-size: 12px;margin-bottom: 5px;`;
