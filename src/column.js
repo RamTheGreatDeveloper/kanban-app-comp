@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { grid, borderRadius } from "./constants";
 import { Draggable } from "react-beautiful-dnd";
 import QuoteList from "./primatives/quote-list";
 import Title from "./primatives/title";
 
 const Container = styled.div`
-  margin: ${grid}px;
+  margin: 8px;
   display: flex;
   flex-direction: column;
   background-color: #ebecf0;
@@ -16,8 +15,8 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top-left-radius: ${borderRadius}px;
-  border-top-right-radius: ${borderRadius}px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
   font-size: 12px;
   transition: background-color 0.2s ease;
   &:hover {

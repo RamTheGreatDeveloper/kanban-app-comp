@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
-import { grid } from "../constants";
 
 const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
   if (isDragging) {
@@ -23,9 +22,9 @@ const Container = styled.a`
     getBackgroundColor(props.isDragging, props.isGroupedOver, props.colors)};
   box-shadow: ${({ isDragging }) =>
     isDragging ? `2px 2px 1px ${colors.N70}` : "none"};
-  padding: ${grid}px;
+  padding: 8px;
   min-height: 40px;
-  margin-bottom: ${grid}px;
+  margin-bottom: 8px;
   user-select: none;
   text-decoration: none;
   color: ${colors.N900};
@@ -74,7 +73,7 @@ const Date = styled.small`
   margin: 0;
   font-weight: bold;
   color: #7e7472;
-  padding: ${grid / 2}px;
+  padding: 4px;
 `;
 const OrderNo = styled.div`
   display: flex;

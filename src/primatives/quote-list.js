@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import QuoteItem from "./quote-item";
-import { grid } from "../constants";
 import Title from "./title";
 
 const getBackgroundColor = (isDraggingOver, isDraggingFrom) => {
@@ -22,21 +21,17 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   opacity: ${({ isDropDisabled }) => (isDropDisabled ? 0.5 : "inherit")};
-  padding: ${grid}px;
-  border: ${grid}px;
+  padding: 8px;
+  border: 8px;
   padding-bottom: 0;
   transition: background-color 0.2s ease, opacity 0.1s ease;
   user-select: none;
   width: 350px;
 `;
-
-const scrollContainerHeight = 600;
-
 const DropZone = styled.div`
-  min-height: ${scrollContainerHeight}px;
-  padding-bottom: ${grid}px;
+  min-height: 600px;
+  padding-bottom: 8px;
 `;
-
 const ScrollContainer = styled.div`
   &::-webkit-scrollbar {
     width: 8px;
@@ -51,7 +46,7 @@ const ScrollContainer = styled.div`
   }
   overflow-x: auto;
   overflow-y: auto;
-  max-height: ${scrollContainerHeight}px;
+  max-height: 600px;
 `;
 
 const Container = styled.div``;
