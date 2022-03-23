@@ -3,14 +3,8 @@ import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
 
 const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
-  if (isDragging) {
-    return authorColors.soft;
-  }
-
-  if (isGroupedOver) {
-    return colors.N30;
-  }
-
+  if (isDragging) {return authorColors.soft;}
+  if (isGroupedOver) {return colors.N30;}
   return colors.N0;
 };
 
